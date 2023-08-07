@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-	<title>1 Bluewater test Site</title>
+	<title>2 Bluewater test Site</title>
     <style type="text/css">
         body {
         	background-color: #EBE9E7;
@@ -287,6 +287,10 @@ h1 {
 		  "label": "isExternal",
 		  "value": "True",
 		  "displayToAgent": true	
+		}, {
+		  "label": "First Name c",
+		  "value": "test",
+		  "displayToAgent": true	
 		}];
 		
 		embedded_svc.settings.extraPrechatInfo = [{
@@ -348,6 +352,12 @@ h1 {
 		    "doCreate": true,
 		    "doFind": false,
 		    "label": "isExternal"	  
+		  }, {
+		    "isExactMatch": false,
+		    "fieldName": "First_Name__c",
+		    "doCreate": true,
+		    "doFind": false,
+		    "label": "First Name c"	  
 		  }] 
 		}]
 		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
