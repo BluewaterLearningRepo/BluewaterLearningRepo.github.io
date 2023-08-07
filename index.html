@@ -283,6 +283,10 @@ h1 {
 		  "label": "CompanyName",
 		  "value": "001d000001u5DiAAAU",
 		  "displayToAgent": true	
+		}, {
+		  "label": "isExternal",
+		  "value": "True",
+		  "displayToAgent": true	
 		}];
 		
 		embedded_svc.settings.extraPrechatInfo = [{
@@ -338,7 +342,13 @@ h1 {
 		    "doCreate": true,
 		    "doFind": false,
 		    "label": "CompanyName"	  
-		  }]
+		  }, {
+		    "isExactMatch": false,
+		    "fieldName": "IsExternal__c",
+		    "doCreate": true,
+		    "doFind": false,
+		    "label": "isExternal"	  
+		  }] 
 		}]
 		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
 		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
@@ -351,13 +361,13 @@ h1 {
 			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
 			// Returns a valid button ID.
 		//};
-		embedded_svc.settings.prepopulatedPrechatFields = {
-		    FirstName: "Violeta",
-		    LastName: "Torres",
-		    Email: "violeta_america15@yahoo.com",
-		    Subject: "Testting Tier 1 Chat",
-		    Company_Name__c: "001d000001u5DiAAAU"
-		};
+		//embedded_svc.settings.prepopulatedPrechatFields = {
+		   // FirstName: "Violeta",
+		//   LastName: "Torres",
+		 //   Email: "violeta_america15@yahoo.com",
+		 //   Subject: "Testting Tier 1 Chat",
+		//    Company_Name__c: "001d000001u5DiAAAU"
+		//};
 		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
 		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
 		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
