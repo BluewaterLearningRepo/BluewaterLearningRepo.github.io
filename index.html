@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-	<title>2 Bluewater test Site</title>
+	<title>1 Bluewater test Site</title>
     <style type="text/css">
         body {
         	background-color: #EBE9E7;
@@ -268,11 +268,11 @@ h1 {
 		embedded_svc.settings.displayHelpButton = true; //Or false
 		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
 		embedded_svc.settings.extraPrechatFormDetails = [{
-		  "label": "Contact First Name",
+		  "label": "First Name",
 		  "value": "External",
 		  "displayToAgent": true
 		}, {
-		  "label": "Contact Last Name",
+		  "label": "Last Name",
 		  "value": "Client",
 		  "displayToAgent": true
 		}, {
@@ -291,29 +291,31 @@ h1 {
 		
 		embedded_svc.settings.extraPrechatInfo = [{
 		  "entityName": "Contact",
-		  "showOnCreate": true,
-		  "linkToEntityName": "Case",
-		  "linkToEntityField": "ContactId",
+		  
+		  "linkToEntityName": "",
+		  /*
+    	          "showOnCreate": true,
+    		  "linkToEntityField": "ContactId",
 		  "saveToTranscript": "ContactId",
 		  "entityFieldMaps": [{
 		    "isExactMatch": true,
 		    "fieldName": "FirstName",
 		    "doCreate": false,
 		    "doFind": true,
-		    "label": "Contact First Name"
+		    "label": "First Name"
 		  }, {
 		    "isExactMatch": true,
 		    "fieldName": "LastName",
 		    "doCreate": false,
 		    "doFind": true,
-		    "label": "Contact Last Name"
+		    "label": "Last Name"
 		  }, {
 		    "isExactMatch": false,
 		    "fieldName": "Email",
 		    "doCreate": false,
 		    "doFind": false,
 		    "label": "Email"
-		  }]
+		  }]*/
 		}, {
 		  "entityName": "Case",
 		  "showOnCreate": true,
