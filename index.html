@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 	<link rel="stylesheet" href="https://bluewater--c.vf.force.com/resource/1691603856000/t1chatstylesheet?" > <!---->
-	<title>3 Dev Bluewater</title>
+	<title>iframe Dev Bluewater</title>
     <style type="text/css">
         body {
         	background-color: #EBE9E7;
@@ -128,6 +128,18 @@ h1 {
 
 <![endif]-->
 </head>
+	  <script type="text/javascript" src="path/to/prototype.js"></script>
+	  <script type="application/javascript">
+	    window.onmessage = function(e) {
+	      console.log(e.data.hasOwnProperty("frameHeight"));
+	      if (e.data.hasOwnProperty("frameHeight")) {
+	        var chatFrame = document.getElementById("chatFrame");
+	        chatFrame.style.height = e.data.frameHeight + 20 + "px";
+	        chatFrame.style.width = e.data.frameWidth + 20 + "px";
+	      }
+	    };
+	  </script>
+	
 <body>
 <center><!--[if mso]>
 	<table cellspacing="0" cellpadding="5">
@@ -317,7 +329,7 @@ h1 {
 	}
 </script> -->
 	<!-- ____________________________Sandbox Chat__________________________________ -->
-<style type='text/css'>
+<!--<style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
 		background-color: #78BE20;
 		font-family: "Benton Sans", sans-serif;
@@ -501,8 +513,106 @@ h1 {
 	} else {
 		initESW('https://service.force.com');
 	}
-</script>
+</script>-->
+    <style type='text/css'>
+      .embeddedServiceHelpButton .helpButton .uiButton {
+        background-color: #005290;
+        font-family: "Arial", sans-serif;
+      }
+
+    .embeddedServiceHelpButton .helpButton .uiButton:focus {
+      outline: 1px solid #005290;
+    }
+    </style>
+
+    <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.js'></script>
+    <script type='text/javascript'>
+      // On page load set the correct size of the iframe to account for either CWAE/Contact Us or Session Continuity.
+      function helpButtonLoaded() {
+        var helpButton = document.querySelector('.helpButton');
+        if (!helpButton) {
+          window.setTimeout(helpButtonLoaded, 500);
+          return;
+        }
+        var height = helpButton.clientHeight;
+        var width = helpButton.clientWidth;
+        window.parent.postMessage({
+                                  frameHeight: height,
+                                  frameWidth: width
+                                  }, '*'); // Used a * but for security reasons you can plug in the domain name.
+      }
+      window.onload = helpButtonLoaded();
+
+      var initESW = function(gslbBaseURL) {
+        embedded_svc.settings.displayHelpButton = true; // Or false
+        embedded_svc.settings.language = 'en-US'; // For example, enter 'en' or 'en-US'
+        embedded_svc.settings.devMode = true;
+        // Have set the widget height and width as a property on the object
+        embedded_svc.settings.widgetWidth = 320;
+        embedded_svc.settings.widgetHeight = 498;
+		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		embedded_svc.settings.entryFeature = 'LiveAgent';
+
+		embedded_svc.init(
+			'https://bluewater.my.salesforce.com',
+			'https://bluewater.my.site.com/externalcaseform',
+			gslbBaseURL,
+			'00Dd0000000cMWX',
+			'Tier1_Group',
+			{
+				baseLiveAgentContentURL: 'https://c.la4-c2-ia5.salesforceliveagent.com/content',
+				deploymentId: '5720W000000oLlw',
+				buttonId: '5736T000000oLoq',
+				baseLiveAgentURL: 'https://d.la4-c2-ia5.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'Tier1_Group',
+				isOfflineSupportEnabled: true
+			}
+		);
+	};
+        embedded_svc.addEventHandler("afterMinimize", function() {
+          var sidebar = document.querySelector('.embeddedServiceSidebarMinimizedDefaultUI');
+          var height = sidebar.clientHeight;
+          var width = sidebar.clientWidth;
+          window.parent.postMessage({
+            frameHeight: height,
+            frameWidth: width
+           }, '*');
+        });
+
+        embedded_svc.addEventHandler("afterMaximize", function() {
+          var container = document.querySelector('.dockableContainer');
+          var height = container.clientHeight;
+          var width = container.clientWidth;
+          window.parent.postMessage({
+            frameHeight: embedded_svc.settings.widgetHeight,
+            frameWidth: embedded_svc.settings.widgetWidth
+          }, '*');
+        });
+
+        embedded_svc.addEventHandler("afterDestroy", function() {
+          var height = document.querySelector('.helpButton').clientHeight;
+          var width = document.querySelector('.helpButton').clientWidth;
+          window.parent.postMessage({
+            frameHeight: height,
+            frameWidth: width
+          }, '*');
+        });
+      };
+
+      if (!window.embedded_svc) {
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://bluewater.my.salesforce.com/embeddedservice/5.0/esw.js');
+        s.onload = function() {
+          initESW(null);
+        };
+        document.body.appendChild(s);
+      } else {
+        initESW('https://bluewater.my.salesforce.com/to/esw.js');
+      }
+
+    </script>
+	
 </body>
 </html>
-</html>
+
 
