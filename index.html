@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 	<link rel="stylesheet" href="https://bluewater--c.vf.force.com/resource/1691603856000/t1chatstylesheet?" > <!---->
-	<title>iframe Dev Bluewater</title>
+	<title>1 iframe Dev Bluewater</title>
     <style type="text/css">
         body {
         	background-color: #EBE9E7;
@@ -550,25 +550,23 @@ h1 {
         // Have set the widget height and width as a property on the object
         embedded_svc.settings.widgetWidth = 320;
         embedded_svc.settings.widgetHeight = 498;
-		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
-		embedded_svc.settings.entryFeature = 'LiveAgent';
+        embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+        embedded_svc.settings.entryFeature = 'LiveAgent';
+        embedded_svc.init(
+          'http://localhost.internal.salesforce.com:6109',
+          'http://localhost.force.com:6109/test1',
+          gslbBaseURL,
+          '00Dxx0000001gEW',
+          'omni_1', {
+            baseLiveAgentContentURL: 'path/to/baseLiveAgentContentURL',
+            deploymentId: '572xx0000000001',
+            buttonId: '573xx0000000001',
+            baseLiveAgentURL: 'path/to/baseLiveAgentURL',
+            eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04IRM0000004Dv12AE_16c4e028e49',
+            isOfflineSupportEnabled: true
+          }
+        );
 
-		embedded_svc.init(
-			'https://bluewater.my.salesforce.com',
-			'https://bluewater.my.site.com/externalcaseform',
-			gslbBaseURL,
-			'00Dd0000000cMWX',
-			'Tier1_Group',
-			{
-				baseLiveAgentContentURL: 'https://c.la4-c2-ia5.salesforceliveagent.com/content',
-				deploymentId: '5720W000000oLlw',
-				buttonId: '5736T000000oLoq',
-				baseLiveAgentURL: 'https://d.la4-c2-ia5.salesforceliveagent.com/chat',
-				eswLiveAgentDevName: 'Tier1_Group',
-				isOfflineSupportEnabled: true
-			}
-		);
-	};
         embedded_svc.addEventHandler("afterMinimize", function() {
           var sidebar = document.querySelector('.embeddedServiceSidebarMinimizedDefaultUI');
           var height = sidebar.clientHeight;
