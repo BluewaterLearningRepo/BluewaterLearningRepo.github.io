@@ -18,7 +18,9 @@
 	    transition: border var(--lwc-durationQuickly,0.1s) linear,background-color var(--lwc-durationQuickly,0.1s) linear;
 	    display: inline-block;
 	}
-	
+	.slds-textarea {
+		line-height: var(--lwc-heightInput,0.875rem);
+	}
 	
 .slds-m-left_none, .slds-m-left--none {
     margin-left: 0;
