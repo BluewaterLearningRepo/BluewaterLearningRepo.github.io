@@ -3,14 +3,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
- <title>iframe Chat </title>	
+ <title>SB 1 iframe Chat</title>	
 	<link rel="stylesheet" href="https://bluewater.my.site.com/externalcaseform/resource/tier1chatstylesheet" >
 </head>
 
 <body>
 
 	<!-- _____________________________Production Chat_______________________ -->
-<style type='text/css'>
+<!--<style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
 		background-color: #163b5d;
 		font-family: "Salesforce Sans", sans-serif;
@@ -128,9 +128,9 @@
 	} else {
 		initESW('https://service.force.com');
 	}
-</script> 
+</script> -->
 	<!-- ____________________________Sandbox Chat__________________________________ -->
-<!--<style type='text/css'>
+<style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton {
 		background-color: #78BE20;
 		font-family: "Benton Sans", sans-serif;
@@ -173,6 +173,26 @@
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
+	
+	      // On page load set the correct size of the iframe to account for either CWAE/Contact Us or Session Continuity.
+      function helpButtonLoaded() {
+        var helpButton = document.querySelector('.helpButton');
+        if (!helpButton) {
+          window.setTimeout(helpButtonLoaded, 500);
+          return;
+        }
+        var height = helpButton.clientHeight;
+        var width = helpButton.clientWidth;
+        window.parent.postMessage({
+                                  frameHeight: height,
+                                  frameWidth: width
+                                  }, '*'); // Used a * but for security reasons you can plug in the domain name.
+      }
+      window.onload = helpButtonLoaded();
+
+
+
+	
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
 		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
@@ -265,6 +285,9 @@
 		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
 		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
 
+			 embedded_svc.settings.widgetWidth = 320;
+       			 embedded_svc.settings.widgetHeight = 498;
+		
 		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
 		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
 
@@ -302,6 +325,35 @@
 				isOfflineSupportEnabled: false
 			}
 		);
+
+				 embedded_svc.addEventHandler("afterMinimize", function() {
+			          var sidebar = document.querySelector('.embeddedServiceSidebarMinimizedDefaultUI');
+			          var height = sidebar.clientHeight;
+			          var width = sidebar.clientWidth;
+			          window.parent.postMessage({
+			            frameHeight: height,
+			            frameWidth: width
+			           }, '*');
+			        });
+			
+			        embedded_svc.addEventHandler("afterMaximize", function() {
+			          var container = document.querySelector('.dockableContainer');
+			          var height = container.clientHeight;
+			          var width = container.clientWidth;
+			          window.parent.postMessage({
+			            frameHeight: embedded_svc.settings.widgetHeight,
+			            frameWidth: embedded_svc.settings.widgetWidth
+			          }, '*');
+			        });
+			
+			        embedded_svc.addEventHandler("afterDestroy", function() {
+			          var height = document.querySelector('.helpButton').clientHeight;
+			          var width = document.querySelector('.helpButton').clientWidth;
+			          window.parent.postMessage({
+			            frameHeight: height,
+			            frameWidth: width
+			          }, '*');
+			        });
 	};
 
 	if (!window.embedded_svc) {
@@ -314,7 +366,7 @@
 	} else {
 		initESW('https://service.force.com');
 	}
-</script>-->
+</script>
 
 	
 </body>
