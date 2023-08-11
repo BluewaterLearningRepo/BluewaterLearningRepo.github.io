@@ -1,1 +1,48 @@
+	abbr.slds-required{
+		display:none;
+	}
+	
+	.slds-input, .slds-textarea {
+	    padding-top: 0;
+	    padding-right: var(--slds-c-input-spacing-horizontal-end, var(--sds-c-input-spacing-horizontal-end, var(--lwc-spacingMedium,1rem)));
+	    padding-bottom: 0;
+	    padding-left: var(--slds-c-input-spacing-horizontal-start, var(--sds-c-input-spacing-horizontal-start, var(--lwc-spacingSmall,0.75rem)));
+	    width: 90%;
+	    min-height: calc(var(--lwc-heightInput,1.875rem) + (var(--lwc-borderWidthThin,1px) * 2));
+	    line-height: var(--lwc-heightInput,1.875rem);
+	    border: var(--lwc-borderWidthThin,1px) solid var(--slds-c-input-color-border, var(--sds-c-input-color-border, var(--slds-g-color-border-base-4, var(--lwc-colorBorderInput,rgb(189, 187, 187)))));
+	    border-radius: var(--slds-c-input-radius-border, var(--sds-c-input-radius-border, var(--lwc-borderRadiusMedium,0.25rem)));
+	    background-color: var(--slds-c-input-color-background, var(--sds-c-input-color-background, var(--slds-g-color-neutral-base-100, var(--lwc-colorBackgroundInput,rgb(255, 255, 255)))));
+	    color: var(--slds-c-input-text-color, var(--sds-c-input-text-color));
+	    box-shadow: var(--slds-c-input-shadow, var(--sds-c-input-shadow));
+	    transition: border var(--lwc-durationQuickly,0.1s) linear,background-color var(--lwc-durationQuickly,0.1s) linear;
+	    display: inline-block;
+	}
+	
+	
+.slds-m-left_none, .slds-m-left--none {
+    margin-left: 0;
+}
+	
+.siteforceThemeLayoutStarter * {
+    box-sizing: border-box;
+}
+	
+.slds-has-error .slds-form-element__help {
+    color: var(--slds-g-color-error-base-40, var(--lwc-colorTextError,rgb(234, 0, 30)));
+}
+	
+.slds-has-error .slds-input {
+    --slds-c-input-color-border: var(--slds-g-color-error-base-40, var(--lwc-colorBorderError,rgb(234, 0, 30)));
+    --slds-c-input-shadow: var(--slds-g-color-error-base-40, var(--lwc-colorBorderError,rgb(234, 0, 30))) 0 0 0 var(--lwc-borderWidthThin,1px) inset;
+    --slds-c-input-color-background: var(--sds-c-input-color-background, var(--sds-c-input-color-background, var(--slds-g-color-neutral-base-100, var(--lwc-colorBackgroundInput,rgb(255, 255, 255)))));
+    --slds-c-input-text-color: var(--slds-c-input-text-color, var(--sds-c-input-text-color));
+    background-clip: padding-box;
+}
+	
+.slds-form-element__help, .slds-form-element__helper {
+    font-size: var(--lwc-fontSize2,0.75rem);
+    margin-top: var(--lwc-spacingXxxSmall,0.125rem);
+    display: block;
+}
 
