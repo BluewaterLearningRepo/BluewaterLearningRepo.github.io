@@ -110,6 +110,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         right: 40px;
     }
 }
+
+		@media only screen and (min-width: 768px) {
+    .offlineEmbeddedServiceHelpButton .offlineHelpButton .offlineUiButton, .embeddedServiceHelpButton div.helpButton button.uiButton, button.sidebarHeader.minimizedContainer.embeddedServiceSidebarMinimizedDefaultUI {
+        border-radius: 25px;
+        height: 48px;
+        min-width: 146px;
+        max-width: 317px;
+        width: fit-content;
+    }
+}
+		@media only screen and (min-width: 768px) {
+    .embeddedServiceHelpButton div.helpButton button.uiButton {
+        background-image: var(--xsf-chat-agent-image);
+        background-position: 7px;
+        background-repeat: no-repeat;
+        background-size: 37px 37px;
+    }
+}
 	</style>
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
