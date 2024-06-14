@@ -313,263 +313,77 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	}
 </script>-->
 	
-	<a id="liveagent_button_online_573VQ000000CGoz" href="javascript://Chat" style="display: none;" onclick="liveagent.startChat('573VQ000000CGoz')">
-<style type='text/css'>
-		embeddedservice-chat-header.chatHeaderBranding {
-		    background-color: rgb(202,204,207); /* change per CLient Color*/
-		}
-	.embeddedServiceHelpButton .helpButton .uiButton {
-		background-color: #003B5C;
-		font-family: "Roboto", sans-serif;
-	}
-	.embeddedServiceHelpButton .helpButton .uiButton:focus {
-		outline: 1px solid #003B5C;
-	}
-			.embeddedServiceSidebarButton[lwc-6078a4utd65] {
-	
-			    background: #00205B;
-	
-			}
-		.sidebarHeader[embeddedService-chatHeader_chatHeader], .loadingAnimation[embeddedService-chatHeader_chatHeader], .headerAnnouncement[embeddedService-chatHeader_chatHeader] {
-		    background-color: #00205B;
-		}
-		.embeddedServiceLiveAgentStateChatPlaintextMessageDefaultUI.chasitor.plaintextContent {
-	     background: #CACCCE; 
-		}
-		.embeddedServiceSidebarMinimizedDefaultUI {
-		    background-color: #CACCCE;
-		    border-color: #CACCCE;
-		}
-		.embeddedServiceSidebarMinimizedDefaultUI.helpButton {
-		    background-color: #CACCCE;
-		    border-color: #CACCCE;
-		}
-		.embeddedServiceSidebarMinimizedDefaultUI.minimizedContainer:focus {
-		    background-color: #CACCCE;
-		}
-		.embeddedServiceSidebarButton {
-	    	background: #00205B;
-		}
-		/*@font-face {
-			font-family: 'Benton Sans';
-			src: url('https://assets.staticlp.com/javascripts/19319132-31a6-45e2-85a5-6dacae897490-3.woff') format('woff'),
-			url('https://assets.staticlp.com/javascripts/19319132-31a6-45e2-85a5-6dacae897490-1.ttf') format('truetype');
-		}*/
-		
-	@media only screen and (min-width: 768px) {
-    .embeddedServiceSidebar.layout-docked div.dockableContainer, .embeddedServiceHelpButton div.helpButton, .offlineEmbeddedServiceHelpButton .offlineHelpButton, button.sidebarHeader.minimizedContainer.embeddedServiceSidebarMinimizedDefaultUI {
-        bottom: var(--xsf-chat-bottom, 40px);
-        right: 40px;
-    }
-}
-
-		@media only screen and (min-width: 768px) {
-    .offlineEmbeddedServiceHelpButton .offlineHelpButton .offlineUiButton, .embeddedServiceHelpButton div.helpButton button.uiButton, button.sidebarHeader.minimizedContainer.embeddedServiceSidebarMinimizedDefaultUI {
-        border-radius: 25px;
-        height: 48px;
-        min-width: 146px;
-        max-width: 317px;
-        width: fit-content;
-    }
-}
-		@media only screen and (min-width: 768px) {
-    .embeddedServiceHelpButton div.helpButton button.uiButton {
-        background-image: var(--xsf-chat-agent-image);
-        background-position: 7px;
-        background-repeat: no-repeat;
-        background-size: 37px 37px;
-    }
-}
-
-</style>
-
-<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
-<script type='text/javascript'>
-
-		      // On page load set the correct size of the iframe to account for either CWAE/Contact Us or Session Continuity.
-      function helpButtonLoaded() {
-        var helpButton = document.querySelector('.helpButton');
-        if (!helpButton) {
-          window.setTimeout(helpButtonLoaded, 500);
-          return;
-        }
-        var height = helpButton.clientHeight;
-        var width = helpButton.clientWidth;
-        window.parent.postMessage({
-                                  frameHeight: height,
-                                  frameWidth: width
-                                  }, '*'); // Used a * but for security reasons you can plug in the domain name.
-      }
-      window.onload = helpButtonLoaded();
-
-
-	var initESW = function(gslbBaseURL) {
-		embedded_svc.settings.displayHelpButton = true; //Or false
-		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
-		embedded_svc.settings.extraPrechatFormDetails = [ {
-		  "label": "First Name",
-		  "value": "External",
-		  "displayToAgent": true
-		}, {
-		  "label": "Last Name",
-		  "value": "Client",
-		  "displayToAgent": true
-		}, {
-		  "label": "Email",
-		  "value": "externalclient@teleflex.com", // externalclient@zachry.com
-		  "displayToAgent": true
-		}, {
-		  "label": "CompanyName",
-		  "value": "0016T000036qJSjQAM", //0016T00002xN4iCQAS
-		  "displayToAgent": true	
-		}, {
-		  "label": "isExternal",
-		  "value": "True",
-		  "displayToAgent": true	
-		}, {
-		  "label": "ClientLogo",
-		  "value": "TeleflexLogo", //zachryGroupLogo
-		  "displayToAgent": true	
-		}, {
-		  "label": "Support Name",
-		  "value": "Teleflex Academy", //Zachry Group
-		  "displayToAgent": true	
-		}, {  
-		    "label":"isExternalChat",
-		    "value":"True",
-		    "transcriptFields":[ "isExternalChat__c" ],
-		    "displayToAgent":true
-		}];
-		
-		embedded_svc.settings.extraPrechatInfo = [ {
-		 "entityName": "Contact",
-		  "linkToEntityName": "Case",
-    	          "showOnCreate": false,
-    		  "linkToEntityField": "ContactId",
-		  "saveToTranscript": "ContactId",
-		  "entityFieldMaps": [{
-		    "isExactMatch": true,
-		    "fieldName": "FirstName",
-		    "doCreate": false,
-		    "doFind": false,
-		    "label": "First Name"
-		  }, {
-		    "isExactMatch": true,
-		    "fieldName": "LastName",
-		    "doCreate": false,
-		    "doFind": true,
-		    "label": "Last Name"
-		  }, {
-		    "isExactMatch": false,
-		    "fieldName": "Email",
-		    "doCreate": false,
-		    "doFind": true,
-		    "label": "Email"
-		  }]
-		}, {
-		  "entityName": "Case",
-		  "showOnCreate": true,
-		  "saveToTranscript": "CaseId",
-		  "entityFieldMaps": [{
-		    "isExactMatch": false,
-		    "fieldName": "Subject",
-		    "doCreate": true,
-		    "doFind": false,
-		    "label": "issue"
-		  }, {
-		    "isExactMatch": false,
-		    "fieldName": "Status",
-		    "doCreate": true,
-		    "doFind": false,
-		    "label": "Status"
-		  }, {
-		    "isExactMatch": false,
-		    "fieldName": "Origin",
-		    "doCreate": true,
-		    "doFind": false,
-		    "label": "Origin"
-		  }, {
-		    "isExactMatch": false,
-		    "fieldName": "Company_Name__c",
-		    "doCreate": true,
-		    "doFind": false,
-		    "label": "CompanyName"	  
-		  }, {
-		    "isExactMatch": false,
-		    "fieldName": "IsExternal__c",
-		    "doCreate": true,
-		    "doFind": false,
-		    "label": "isExternal"	  
-		  }, {
-		    "isExactMatch": false,
-		    "fieldName": "Support_Name__c",
-		    "doCreate": true,
-		    "doFind": false,
-		    "label": "Support Name"	  
-		  }, {
-		    "isExactMatch": false,
-		    "fieldName": "ClientLogo__c",
-		    "doCreate": true,
-		    "doFind": false,
-		    "label": "ClientLogo"	  
-		  }] 
-		}]
-		
-		embedded_svc.settings.defaultMinimizedText = 'Let\'s Chat'; //(Defaults to Chat with an Expert)
-		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
-		embedded_svc.settings.smallCompanyLogoImgURL = "https://bluewater.my.site.com/externalcaseform/resource/TeleflexTElement";
-		embedded_svc.settings.avatarImgURL = "https://www.lightningdesignsystem.com/assets/images/avatar2.jpg";
-		embedded_svc.settings.prechatBackgroundImgURL = "https://bluewater.my.site.com/externalcaseform/resource/TeleflexTElement";
-		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
-		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
-			 embedded_svc.settings.widgetWidth = 320;
-       			 embedded_svc.settings.widgetHeight = 498;
-		// Settings for Chat
-		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
-			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
-			// Returns a valid button ID.
-		//};
-		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
-		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
-		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
-
-		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
-		embedded_svc.settings.entryFeature = 'LiveAgent';
-
-		embedded_svc.init(
-			'https://bluewater.my.salesforce.com',
-			'https://bluewater.my.site.com/externalcaseform',
-			gslbBaseURL,
-			'00Dd0000000cMWX',
-			'Tier_1_Standard_Chat',
-			{
-				baseLiveAgentContentURL: 'https://c.la1-core2.sfdc-lywfpd.salesforceliveagent.com/content',
-				deploymentId: '5720W000000oLlw',
-				buttonId: '573VQ000000CGoz',
-				baseLiveAgentURL: 'https://d.la1-core2.sfdc-lywfpd.salesforceliveagent.com/chat',
-				eswLiveAgentDevName: 'Tier_1_Standard_Chat',
-				isOfflineSupportEnabled: true
-			}
-		);
-	};
-
-	if (!window.embedded_svc) {
-		var s = document.createElement('script');
-		s.setAttribute('src', 'https://bluewater.my.salesforce.com/embeddedservice/5.0/esw.min.js');
-		s.onload = function() {
-			initESW(null);
-		};
-		document.body.appendChild(s);
-	} else {
-		initESW('https://service.force.com');
-	}
-</script>
+<a id="liveagent_button_online_573VQ000000CGoz" href="javascript://Chat" style="display: none;" onclick="liveagent.startChat('573VQ000000CGoz')">
+<!-- Online Chat Content -->
 
 
 <!--___________________________-->
 </a><div id="liveagent_button_offline_573VQ000000CGoz" style="display: none;">
 
 <!-- Offline Chat Content -->
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+<!--  If necessary, please modify the charset parameter to specify the        -->
+<!--  character set of your HTML page.                                        -->
+<!--  ----------------------------------------------------------------------  -->
+
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <FORM> element to your page.             -->
+<!--  ----------------------------------------------------------------------  -->
+
+<form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00Dd0000000cMWX" method="POST">
+
+<input type=hidden name="orgid" value="00Dd0000000cMWX">
+<input type=hidden name="retURL" value="https://bluewater.my.site.com/externalcaseform/s/thank-you">
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+<!--  these lines if you wish to test in debug mode.                          -->
+<!--  <input type="hidden" name="debug" value=1>                              -->
+<!--  <input type="hidden" name="debugEmail"                                  -->
+<!--  value="violetatorres@bluewaterlearning.com">                            -->
+<!--  ----------------------------------------------------------------------  -->
+
+Client First Name:<input  id="00N0W000009CnM7" maxlength="255" name="00N0W000009CnM7" size="20" type="text" /><br>
+
+Client Last Name:<input  id="00N0W000009CnMH" maxlength="255" name="00N0W000009CnMH" size="20" type="text" /><br>
+
+<label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+
+<label for="subject">Subject</label><input  id="subject" maxlength="80" name="subject" size="20" type="text" /><br>
+
+<label for="description">Description</label><textarea name="description"></textarea><br>
+
+<label for="name">Contact Name</label><input  id="name" maxlength="80" name="name" size="20" type="text" /><br>
+
+Support Name:<input  id="00N6T00000A3fO2" maxlength="50" name="00N6T00000A3fO2" size="20" type="text" /><br>
+
+IsExternal:<input  id="00N0W000009CnON" name="00N0W000009CnON" type="checkbox" value="1" /><br>
+
+<label for="type">Type</label><select  id="type" name="type"><option value="">--None--</option><option value="Feature Request">Modification Request</option>
+<option value="Question">Question</option>
+<option value="New Hire Request">New Hire Request</option>
+<option value="New Task">New Task</option>
+<option value="Request">Request</option>
+<option value="Incident">Incident</option>
+<option value="Assurance">Assurance</option>
+</select><br>
+
+<label for="priority">Priority</label><select  id="priority" name="priority"><option value="">--None--</option><option value="High">High</option>
+<option value="Medium">Medium</option>
+<option value="Low">Low</option>
+</select><br>
+
+Company Name:<input  id="00N6T000009j6pc" maxlength="18" name="00N6T000009j6pc" size="20" type="text" /><br>
+
+<input type="hidden"  id="external" name="external" value="1" /><br>
+
+<input type="submit" name="submit">
+
+</form>
+<!-- ____________________-->
 
 </div><script type="text/javascript">
 if (!window._laq) { window._laq = []; }
@@ -581,6 +395,7 @@ liveagent.showWhenOffline('573VQ000000CGoz', document.getElementById('liveagent_
 <script type='text/javascript'>
 liveagent.init('https://d.la1-core2.sfdc-lywfpd.salesforceliveagent.com/chat', '5720W000000oLlw', '00Dd0000000cMWX');
 </script>
+
 
 
 
