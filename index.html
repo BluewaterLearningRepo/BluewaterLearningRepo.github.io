@@ -62,6 +62,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	
 <a id="liveagent_button_online_573VQ000000CGoz" href="javascript://Chat" style="display: none;" onclick="liveagent.startChat('573VQ000000CGoz')"><!-- Online Chat Content -->
 </a><div id="liveagent_button_offline_573VQ000000CGoz" style="display: none;"><!-- Offline Chat Content -->
+<button class="offlinebutton">Green</button>
+	
 <!--  ----------------------------------------------------------------------  -->
 <!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
 <!--  If necessary, please modify the charset parameter to specify the        -->
@@ -137,6 +139,38 @@ liveagent.init('https://d.la1-core2.sfdc-lywfpd.salesforceliveagent.com/chat', '
 </script>
 	
 <style type='text/css'>
+	.offlinebutton {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0 12px;
+    height: 46px;
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 23px;
+    line-height: 1;
+    background-color: #003B5C;
+    font-family: "Roboto", sans-serif;
+    font-size: 0.875em;
+    color: #fff;
+    font-weight: normal;
+    text-shadow: none;
+    font-family: inherit;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
 		embeddedservice-chat-header.chatHeaderBranding {
 		    background-color: rgb(202,204,207); /* change per CLient Color*/
 		}
