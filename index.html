@@ -60,10 +60,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	
 	<!-- _________________________Prod Standard Chat ___________________________-->
 	
-<div id="liveagent_button_offline_573VQ000000CGoz">
-	
-<div class="embeddedServiceHelpButton" style="display: block;"><div class="helpButton" style="width: 146px;"><button class="uiButton" href="https://bluewater.my.site.com/externalcaseform/s/teleflex"><span class="embeddedServiceIcon" aria-hidden="true" data-icon="""></span><span class="helpButtonLabel" id="helpButtonSpan" aria-live="polite" aria-atomic="true"><span class="assistiveText">Live chat:</span><span class="message">Let's Chat</span></span></button></div></div>
-
+<a id="liveagent_button_online_573VQ000000CGoz" href="javascript://Chat" style="display: none;" onclick="liveagent.startChat('573VQ000000CGoz')"><!-- Online Chat Content -->
+</a><div id="liveagent_button_offline_573VQ000000CGoz" style="display: none;"><!-- Offline Chat Content -->
+<div class="embeddedServiceHelpButton" style="display: block;"><div class="helpButton" style="width: 146px;"><button class="uiButton" href="javascript:void(0)"><span class="embeddedServiceIcon" aria-hidden="true" data-icon="" style="display: none;"></span><span class="helpButtonLabel" id="helpButtonSpan" aria-live="polite" aria-atomic="true"><span class="assistiveText">Live chat:</span><span class="message">Let's Chat</span></span></button></div></div>
 </div><script type="text/javascript">
 if (!window._laq) { window._laq = []; }
 window._laq.push(function(){liveagent.showWhenOnline('573VQ000000CGoz', document.getElementById('liveagent_button_online_573VQ000000CGoz'));
@@ -108,7 +107,7 @@ liveagent.showWhenOffline('573VQ000000CGoz', document.getElementById('liveagent_
 		.embeddedServiceSidebarButton {
 	    	background: #00205B;
 		}
-		.embeddedServiceHelpButton .helpButton .uiButton.helpButtonDisabled { display: none; }
+		/*.embeddedServiceHelpButton .helpButton .uiButton.helpButtonDisabled { display: none; }*/
 		/*@font-face {
 			font-family: 'Benton Sans';
 			src: url('https://assets.staticlp.com/javascripts/19319132-31a6-45e2-85a5-6dacae897490-3.woff') format('woff'),
