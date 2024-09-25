@@ -480,12 +480,16 @@ function myFunction() {
   // Hide buttons with the class "my-button"
   const buttons = document.getElementsByClassName("uiButton");
   for (let i = 0; i < buttons.length; i++) {
-    buttons[i].style.display = "none";
+	  if (buttons[i] !== null) {
+    		buttons[i].style.display = "none";
+	  }
   }
 	  // Hide buttons with the class "my-button"
   const buttonstwo = document.getElementsByClassName("services");
   for (let i = 0; i < buttonstwo.length; i++) {
-    buttonstwo[i].style.display = "none";
+	if (buttonstwo[i] !== null) {
+	    buttonstwo[i].style.display = "none";
+	}
   }
 }
 	
