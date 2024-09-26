@@ -127,8 +127,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!--</a><div id="liveagent_button_offline_573VQ000000CGoz" style="display: none;"><!-- Offline Chat Content -->
 
 <div class = "services"><div class = "help"><a target = "_blank" href="https://bluewater.my.site.com/externalcaseform/s/teleflex"><button class="offlinebutton enabledOffline"><span class="embeddedServiceIcon" aria-hidden="true" data-icon="" style="display: inline-block;"><img width = "17.5px" src ="https://bluewater.my.site.com/externalcaseform/resource/offlineChatIcon"/></span> <span class = "offlineLabel" style = "font-family:'Roboto', sans-serif; ">Contact Us</span></button> </a></div></div>
-<div class = "services">
-	<div class = "help">
+<div class = "close">
+	<div class = "ex">
 <img width ="30px" src ="https://bluewater.my.site.com/externalcaseform/resource/CloseX_Grey" onclick="myFunction()">
 </div></div>
 <script type="text/javascript">
@@ -162,7 +162,24 @@ flex-direction: row;
     height: 30px;
     width: 30px;
 }
-	
+.close {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+    z-index: 999;
+    font-family: sans-serif;
+}
+	.close .ex{
+    position: fixed;
+    bottom: 100px;
+    right: 200px;
+    height: 100px;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
 	.services {
     display: block;
     position: fixed;
