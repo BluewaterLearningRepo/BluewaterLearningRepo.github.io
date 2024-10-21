@@ -134,7 +134,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class = "tab">
 
-<img width ="20px" src ="https://bluewater.my.site.com/externalcaseform/resource/offlineChatIcon" >	
+<img width ="20px" class ="center" src ="https://bluewater.my.site.com/externalcaseform/resource/offlineChatIcon" >
+	<p style ="color: white;">Let's Chat</p>
 </div>
 <script type="text/javascript">
 if (!window._laq) { window._laq = []; }
@@ -148,16 +149,26 @@ liveagent.init('https://d.la1-core2.sfdc-lywfpd.salesforceliveagent.com/chat', '
 </script>
 	
 <style type='text/css'>
+	.center {
+	  display: block;
+	  margin-left: auto;
+	  margin-right: auto;
+	  width: 50%;
+	}
 .tab{
-	    position: fixed;
+    position: fixed;
     bottom: 50%;
     right: 10px;
     width:2%;
-	height:5%;
+    height:5%;
     -webkit-font-smoothing: subpixel-antialiased;
 	border-top-left-radius: 25%;
 	border-bottom-left-radius: 25%;
 	  background-color: #003B5C;
+}
+
+.tab:hover{
+	width: 5%;
 }
 .close {
     display: block;
