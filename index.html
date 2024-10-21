@@ -156,7 +156,7 @@ liveagent.init('https://d.la1-core2.sfdc-lywfpd.salesforceliveagent.com/chat', '
 		
 	}
 .tab{
-    display: flex;
+    display: none;
     align-items: center;
     position: fixed;
     text-align: center;
@@ -569,7 +569,7 @@ function myFunction() {
 const tab = document.getElementsByClassName("tab");
 	  for (let i = 0; i < tab.length; i++) {
 	if (tab[i] !== null) {
-	    tab[i].style.display = "block";
+	    tab[i].style.display = "flex";
 	}
  }
 }
